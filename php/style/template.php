@@ -10,8 +10,8 @@
 
  	<script src="js/jquery-2.1.0.min.js"></script> 
  	
-	<link href="js/thirdparty/uploadFile/css/uploadfile.css" rel="stylesheet">
-	<script src="js/thirdparty/uploadFile/js/jquery.uploadfile.min.js"></script>
+	<link href="js/uploadFile/css/uploadfile.css" rel="stylesheet">
+	<script src="js/uploadFile/js/jquery.uploadfile.min.js"></script>
 </head>
 <body>
   <script>
