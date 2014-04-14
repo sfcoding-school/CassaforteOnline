@@ -1,0 +1,38 @@
+.regForm{
+	margin: 5px;
+	padding: 20px;
+
+    border-radius: 7px;
+    box-shadow: 0px 5px 5px grey;
+    border: 1px solid lightgrey;
+}
+
+.getProTable td tr {
+	vertical-align: top;
+}
+
+.vantaggi{
+	margin-top: 0px;
+	padding: 5px;
+	margin-left: 10px;
+	/*
+	border-radius: 7px;
+    box-shadow: 0px 5px 5px grey;
+   	background: none repeat scroll 0% 0% lightgrey;
+    border: 1px solid lightgrey;
+	*/
+}
+
+.blogTitle{
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+.blogText{
+	font-size: 12pt;
+}
+
+.contenitore{
+	margin: 0 auto;
+	display: table;
+}

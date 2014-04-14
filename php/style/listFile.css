@@ -1,0 +1,24 @@
+.fileList{
+	font: 14px "Helvetica Neue",Helvetica,Arial,sans-serif;
+	border-collapse: collapse;
+	border-radius: 7px;
+}
+
+.fileList th td tr{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.fileList th{
+	text-align: left;
+}
+
+.fileList td{
+	vertical-align: top;
+    border: 1px solid white;
+    width: 150px;
+}
+
+.fileList tr{
+	margin: 10px;
+}

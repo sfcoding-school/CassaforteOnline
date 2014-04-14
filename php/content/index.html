@@ -1,0 +1,111 @@
+<script>
+	/*jQuery(function($) {
+	 $('#goToUpload').click(function() {
+	 $("#coperchio").toggleClass("clicked");
+	 });
+	 });*/
+
+	$(document).ready(function() {
+
+			/*
+			$("#coperchio").toggleClass("clicked");
+			e.preventDefault();  //stop the browser from following
+    		window.location.href = '/SAED/php/style/listFile.css';
+			*/
+		
+		/*
+		$("#startUpload").click(function() {
+			var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+			var email = $("#email").val();
+			if (testEmail.test(email)){
+				$("#email").attr("disabled","disabled");
+				
+				$.post( "checkDime.php", { email: email, dim: sizeFile })
+  					.done(function(data) {
+  						//alert(data)
+    					if (data == true){
+    						$(this).remove();
+							uploadObj.startUpload();
+ 						}else{
+ 							alert("spazio esaurito");
+ 						}    						
+  					});
+			}else
+				alert("email non valida");
+		});
+		*/
+
+		
+
+		$('#download').click(function(){
+			if($('#form').children().length > 0 && $('#formD').children().length > 0){
+				$('#form').empty();
+			}else{
+				$('#form').empty();
+				$('#form').load('content/formD.php');	
+			}
+		});
+
+
+		$('#upload').click(function(){
+			if($('#form').children().length > 0 && $('#formU').children().length > 0){
+				$('#form').empty();
+			}else{
+				$('#form').empty();
+				$('#form').load('content/formU.php');
+			}
+		});
+
+		$(window).resize(function() {
+			if ($("#coperchio").hasClass("clicked")) {
+				windowsAdapt();
+			}
+		});
+
+		function windowsAdapt() {
+			if ($(window).width() < 930) {
+				$(".cassaforte").css("left", "0px");
+				$(".esterno").css("display", "block");
+			} else {
+				$(".cassaforte").css("left", "-170px");
+				$(".esterno").css("display", "table");
+			}
+		}
+
+	}); 
+
+</script>
+<div class="esterno">
+	<div class="cassaforte">
+		<div class="cassa">
+			<img src="source/cassaforte1.png"/>
+			<div id="insideCassa">
+
+				<div id="insideU">
+					<div id="status"></div>
+					<div id="cancelUpload" class='button'>Cancel</div>
+				</div>
+			
+				<div id="insideD">		
+					<div id='down'></div>
+				</div>
+			</div>
+		</div>
+		<div class="coperchio" id="coperchio">
+			<div class="front">
+				<img class="coperchioImg" src="source/coperchio.png"/>
+				<div id="outsideCassa">
+					<div id="upload" class='buttonUD background'>&#x25B2;Ulpload</div>
+					<div id="form" class='background'></div>
+					<div id="download" class='buttonUD background'>&#x25BC;Download</div>
+				</div>
+			</div>
+			<!--<svg class="img2" height="700" width="1200" xmlns="http://www.w3.org/2000/svg">
+			<image class="coperchio" id="coperchio" x="48" y="48" height="524" width="524"  xlink:href="source/coperchio.svg" />
+			</svg>-->
+			<div class="back">
+				<img class="coperchioImg" src="source/coperchioBack.png"/>
+			</div>
+		</div>
+	</div>
+</div>

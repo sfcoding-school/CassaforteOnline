@@ -1,0 +1,25 @@
+<script>
+	$(document).ready(function(){
+		$('#buttonLogin').click(function(){
+			var email = $('#emailLogin').val();
+			var pass = $('#passwordLogin').val();
+			$.post('login.php', {email: email, password: pass})
+				.done(function(data){
+					if(data==1){
+						$('#loginDiv').load('style/loginDiv.php');
+					}else{
+						$('#loginError').text("password sbagliata!");
+					}
+				});
+		});
+	});
+</script>
+
+<div class="loginForm background">
+	<span id="loginError"></span>
+    <span style="display: table;">email</span>
+    <input class="inputText" type="text" id="emailLogin" style="display: table;"></br>
+    <span style="display: table;">password</span>
+    <input class="inputText" type="password" id="passwordLogin" style="display: table;"></br>
+    <div class="button" id="buttonLogin" style="display: table;">login</div>
+</div>

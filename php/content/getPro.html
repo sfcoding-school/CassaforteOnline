@@ -1,0 +1,101 @@
+<script>
+	$(document).ready(function() {
+		var si = '&#10004;';
+		var no = '&#10008;';
+
+		function controllaPass(pass, rpass){
+			if (pass==rpass){
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		$('#buttonRegistration').click(function(){
+			var email = $('#email').val();
+			var pass = $('#password').val();
+			var rePass = $('#rePassword').val();
+			//alert(email+' '+pass);
+			if (controllaMail(email) && controllaPass(pass,rePass)){
+				$.post("registration.php", {email: email, password: pass})
+					.done(function(data){
+						$('#regForm').empty();
+						if (data==1){
+							$('#regForm').html("<div style='width: 300px;'>operazione completata, riceverai email di conferma all'indirizzo "+email+"</div>");
+						}else{
+							$('#regForm').html("<div class='regCompletata'>errore riprovare più tardi</div>");
+						}
+					});
+			}else{
+				alert("controllare l'email o la password");
+			}
+		});
+
+		/*$('#email').keypress(function(key){
+			alert(String.fromCharCode(key.which));
+			if (String.fromCharCode(key.which)!=null){
+			var email = $("#email").val() + String.fromCharCode(key.which);
+			if (testEmail.test(email)){
+				//alert('si');
+				$('#checkEmail').text('si');
+			}else{
+				//alert('no');
+				$('#checkEmail').text('no');
+			}
+		}
+		});*/
+		$('#email').on('input', function() {
+			var email = $(this).val();
+    		if (controllaMail(email)){
+				//alert('si');
+				$('#checkEmail').html(si);
+			}else{
+				//alert('no');
+				$('#checkEmail').html(no);
+			}
+		});
+
+		$('#rePassword').on('input',function(){
+			var pass = $("#password").val();
+			var rePass = $(this).val();
+			if (controllaPass(pass,rePass)){
+				$('#checkPassword').html(si);
+			}else{
+				$('#checkPassword').html(no);
+			}
+		});
+	
+	});
+</script>
+
+<div class="contenitore">
+	<table class = "getProTable">
+	<tr>
+		<td>
+			<div class="regForm background" id="regForm">
+		    	<span style="display: table;">email</span>
+		    	<input class="inputText" type="text" id="email" style="display: table;"><span id="checkEmail"></span></br>
+		    	<span style="display: table;">password</span>
+		    	<input class="inputText" type="password" id="password" style="display: table;"></br>
+		    	<span style="display: table;">ripeti-password</span>
+		    	<input class="inputText" type="password" id="rePassword" style="display: table;"><span id="checkPassword"></span></br>
+		    	<div class="button" id="buttonRegistration" style="display: table;">Registrati</div>
+			</div>
+		</td>
+		<td>
+	<div class="vantaggi">
+		<p class="blogTitle">I vantaggi di essere pro:</p>
+		<p class="blogText">
+			Avrai una <b>lista</b> dei tuoi codici, così da non perdere i tuoi file più preziosi.
+		</p>
+		<p class="blogText">
+			I tuoi file resteranno sui nostri server per <b>sempre</b>, senza nessun tipo di limite.
+		</p>
+		<p class="blogText">
+			Avrei fino a <b>5Gb</b> di spazio per archiviare tutti i tuoi file.
+		</p>
+	</div>
+		</td>
+	</tr>
+	</table>
+</div>

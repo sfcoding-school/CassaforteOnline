@@ -1,0 +1,29 @@
+PYTHON & PIP
+yum install python-devel python-pip
+apt-get install python-dev python-pip
+
+MYSQLDB per python
+yum install mysql-devel
+apt-get install libmysqlclient-dev
+pip install mysql-python
+
+SOAPLIB (2.0 Beta) per python (server)
+pip install soaplib
+
+SUDS-JURKO per python (client)
+pip install suds-jurko
+
+CONFIGPARSER per python
+pip install ConfigParser
+
+SOAP per php
+yum install php-soap
+apt-get install php-soap
+
+RASPBIAN - LAMP
+apt-get install mysql-server apache2 php5 vsftpd
+da quello che ho capito mysql è stato diviso in mysql-client e mysql-server,
+non sò se ci servono entrambe o no!
+
+
+
