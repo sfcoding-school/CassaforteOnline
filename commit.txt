@@ -1,8 +1,0 @@
-git add file
-git rm file
-
-git commit -am ""
-git push butta su
-
-git pull tira giu 
-
